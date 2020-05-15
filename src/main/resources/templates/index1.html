@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>HelloWorld!!   index2</h2>
+
+HttpServletRequst:<span th:text="${#request.getAttribute('req')}"/>
+				  <span th:text="${#httpServletRequest.getAttribute('req')}"/>
+<hr/>
+HttpSesstion:     <span th:text="${session.ses}"/>
+				  <span th:text="${#httpSession.getAttribute('ses')}"/>
+<hr/>
+Application:	  <span th:text="${application.app}"/>
+				  <span th:text="${#servletContext.getAttribute('app')}"/>
+
+
+
+<hr/>
+<a th:href="@{http://www.yahoo.co.jp}">Yahoo!!</a>
+<hr/>
+<a th:href="@{/show2}">プロジェクト配下</a>
+<!-- <a th:href="@{~/project2/resourcename}">サーバー配下</a> -->
+<hr/>
+<a th:href="@{/show2?id=1&name=admin}">URL経由パラメータ受け取り 方式一</a>
+<hr/>
+<a th:href="@{/show2(id=2,name=admin2)}">URL経由パラメータ受け取り　方式二</a>
+<hr/>
+<a th:href="@{'/show2?id='+${id}+'&name='+${name}}">URL経由パラメータ受け取り　方式三</a>
+<hr/>
+<a th:href="@{/show2(id=${id},name=${name})}">URL経由パラメータ受け取り　方式四</a>
+<hr/>
+<a th:href="@{/show3/{id}(id=200)}">restful　方式一</a>
+<hr/>
+<a th:href="@{/show3/{id}/{name}(id=200,name=admin)}">restful　方式二</a>
+<hr/>
+<a th:href="@{/show4/{id}/(id=200,name=admin)}">restful　方式三</a>
+<hr/>
+<a th:href="@{/show4/{id}/(id=${id},name=${name})}">restful　方式四</a>
+</body>
+</html>

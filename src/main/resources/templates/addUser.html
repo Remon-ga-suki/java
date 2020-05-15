@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel = "shortcut icon" href="../resources/favicon.ico" th:href="@{/static/favicon.ico}">
+<head>
+<meta charset="UTF-8">
+<title>Sunseer</title>
+</head>
+<body>
+
+<form th:action="@{/user/addUser}" method="post">
+	<input type="text" name="username"><br/>
+	<input type="text" name="usersex"><br/>
+	<input type="submit" value="OK"><br/>
+
+
+</form>
+
+</body>
+</html>

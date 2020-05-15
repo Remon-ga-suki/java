@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>HelloWorld!!   index2</h2>
+
+<span th:text="サンシーア">sunseer</span>
+<hr/>
+<span th:text="${msg}"></span>
+<hr/>
+<input th:value="${msg}"></input>
+<hr/>
+<span th:text="${#strings.isEmpty(msg)}"></span>
+<hr/>
+<span th:text="${#strings.contains(msg,'T')}"></span>
+<hr/>
+<span th:text="${#strings.length(msg)}"></span>
+<hr/>
+<span th:text="${#dates.format(date)}"></span>
+<hr/>
+<span th:text="${#dates.format(date,'yyyy/MM/dd')}"></span>
+<hr/>
+<span th:text="${#dates.year(date)}"></span>
+<span th:text="${#dates.month(date)}"></span>
+<span th:text="${#dates.day(date)}"></span>
+<hr/>
+<div>
+	<span th:if="${sex} == '男'">
+		性別：男
+	</span>
+	<span th:unless="${sex} == '男'">
+		性別：女
+	</span>
+</div>
+<hr/>
+<div th:switch="${id}">
+	<span th:case="1">IDは1です</span>
+	<span th:case="2">IDは2です</span>
+	<span th:case="3">IDは3です</span>
+	<span th:case="*">IDは*です</span>
+</div>
+
+<hr/>
+<table border="1" width="50%">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Index</th>
+		<th>Count</th>
+		<th>Size</th>
+		<th>Odd</th>
+		<th>Even</th>
+		<th>First</th>
+		<th>Last</th>
+	</tr>
+	<tr th:each="u,t : ${list}">
+		<td th:text="${u.id}"></td>
+		<td th:text="${u.name}"></td>
+		<td th:text="${u.age}"></td>
+		<td th:text="${t.index}"></td>
+		<td th:text="${t.count}"></td>
+		<td th:text="${t.size}"></td>
+		<td th:text="${t.odd}"></td>
+		<td th:text="${t.even}"></td>
+		<td th:text="${t.first}"></td>
+		<td th:text="${t.last}"></td>
+	</tr>
+
+</table>
+
+
+<hr/>
+<table border="1" width="50%">
+	<tr>
+		<th>Value</th>
+	</tr>
+	<tr th:each="m : ${map}">
+		<td th:text="${m}"></td>
+	</tr>
+</table>
+
+<hr/>
+<table border="1" width="50%">
+	<tr>
+		<th>Key</th>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Age</th>
+	</tr>
+	<tr th:each="m : ${map}">
+		<td th:text="${m.key}"></td>
+		<td th:text="${m.value.id}"></td>
+		<td th:text="${m.value.name}"></td>
+		<td th:text="${m.value.age}"></td>
+
+	</tr>
+</table>
+
+</body>
+</html>

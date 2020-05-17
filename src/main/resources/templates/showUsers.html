@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel = "shortcut icon" href="../resources/favicon.ico" th:href="@{/static/favicon.ico}">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" align="center">
+		<tr>
+			<th>ユーザーID</th>
+			<th>ユーザー名</th>
+			<th>ユーザー性別</th>
+			<th>作業</th>
+		</tr>
+		<tr>
+		<tr th:each="u : ${list}">
+			<td th:text="${u.userid}"></td>
+			<td th:text="${u.username}"></td>
+			<td th:text="${u.usersex}"></td>
+			<td>
+				<a th:href="@{/user/preUpdateUser(id=${u.userid})}">改修</a>
+				<a th:href="@{/user/deleteUser(id=${u.userid})}">削除</a>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

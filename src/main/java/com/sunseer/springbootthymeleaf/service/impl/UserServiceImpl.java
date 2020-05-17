@@ -19,7 +19,6 @@ public class UserServiceImpl implements UsersService{
 	@Override
 	@Transactional
 	public void addUser(UserTable users) {
-		// TODO 自動生成されたメソッド・スタブ
 
 		this.usersDao.insertUsers(users);
 
@@ -27,8 +26,27 @@ public class UserServiceImpl implements UsersService{
 
 	@Override
 	public List<UserTable> findUsersAll() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+
+		return this.usersDao.selectUsersAll();
+	}
+
+	@Override
+	public UserTable findUserById(Integer id) {
+		return this.usersDao.selectUserById(id);
+	}
+
+	@Override
+	@Transactional //DML(Data Manipulation Language)作業,insert,update,delete
+	public void modifyUser(UserTable users) {
+		this.usersDao.updateusers(users);
+		
+	}
+
+	@Override
+	@Transactional
+	public void dropUser(Integer id) {
+		this.usersDao.deleteuserById(id);
+		
 	}
 
 }

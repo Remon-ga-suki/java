@@ -8,5 +8,8 @@ public interface UsersService {
 
 	void addUser(UserTable users);
 	List<UserTable> findUsersAll();
+	UserTable findUserById(Integer id);
+	void modifyUser(UserTable users);
+	void dropUser(Integer id);
 
 }
